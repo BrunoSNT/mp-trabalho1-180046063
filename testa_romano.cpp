@@ -44,7 +44,7 @@
 #include "/romano.h"
 #include "/gtest/gtest.h"
 namespace {
-
+}
 // Step 2. Use the TEST macro to define your tests.
 //
 // TEST has two parameters: the test case name and the test name.
@@ -85,10 +85,7 @@ namespace {
   // and is thus more general.
   //
   // </TechnicalDetails>
-}
-
-}
-}  // namespace
+  // namespace
 
 // Step 3. Call RUN_ALL_TESTS() in main().
 //
