@@ -83,7 +83,13 @@ TEST(TestaROMANO, Conversao) {
 }
 
 TEST(TestaROMANO, Avaliacao) {
-  EXPECT_EQ(1,    avalia("I"));
+  EXPECT_EQ(1,      avalia("I"));
+  EXPECT_EQ(5,      avalia("V"));
+  EXPECT_EQ(10,     avalia("X"));
+  EXPECT_EQ(50,     avalia("L"));
+  EXPECT_EQ(100,    avalia("C"));
+  EXPECT_EQ(500,    avalia("D"));
+  EXPECT_EQ(1000,   avalia("M"));
 }   // <TechnicalDetails>
   //
   // EXPECT_EQ(expected, actual) is the same as
