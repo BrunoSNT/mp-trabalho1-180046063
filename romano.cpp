@@ -29,14 +29,32 @@
 
 // A sample program demonstrating using Google C++ testing framework.
 
-#include "romano.h"
+#include "./romano.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
 
 int converte(const char* romano) {
-  if (romano[0] == 'I'){
+  if (romano[0] == 'I') {
     return 1;
+  }
+  if (romano[0] == 'V') {
+    return 5;
+  }
+  if (romano[0] == 'X') {
+    return 10;
+  }
+  if (romano[0] == 'L') {
+    return 50;
+  }
+  if (romano[0] == 'C') {
+    return 100;
+  }
+  if (romano[0] == 'D') {
+    return 500;
+  }
+  if (romano[0] == 'M') {
+    return 1000;
   }
   return 0;
 }

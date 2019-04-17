@@ -43,7 +43,7 @@
 #include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "romano.h"
+#include "./romano.h"
 #include "gtest/gtest.h"
 namespace {
 }
@@ -73,7 +73,14 @@ namespace {
 
   // test case.
 TEST(TestaROMANO, Units) {
-  EXPECT_EQ(1, converte("I"));}  // entrada string I,
+  EXPECT_EQ(1,    converte("I"));
+  EXPECT_EQ(5,    converte("V"));
+  EXPECT_EQ(10,   converte("X"));
+  EXPECT_EQ(50,   converte("L"));
+  EXPECT_EQ(100,  converte("C"));
+  EXPECT_EQ(500,  converte("D"));
+  EXPECT_EQ(1000, converte("M"));
+}  // entrada string I,
   // esperamos a saide de o int 1
   // <TechnicalDetails>
   //
