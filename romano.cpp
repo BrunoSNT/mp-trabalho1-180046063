@@ -84,7 +84,9 @@ int avalia(const char* romano) {
       }
     } else {
         if (converte(&romano[posicao]) >= anterior/10 
-          && converte(&romano[posicao]) != 5) {
+          && converte(&romano[posicao]) != 5
+          && converte(&romano[posicao]) != 50
+          && converte(&romano[posicao]) != 500) {
           numero = numero - converte(&romano[posicao]);
         } else {
           return  -1;

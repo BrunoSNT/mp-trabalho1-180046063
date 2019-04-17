@@ -163,6 +163,10 @@ TEST(TestaROMANO, Erros) {
   EXPECT_EQ(-1,   avalia("LC"));
   EXPECT_EQ(-1,   avalia("LD"));
   EXPECT_EQ(-1,   avalia("LM"));
+  EXPECT_EQ(150,   avalia("CL"));
+  EXPECT_EQ(400,   avalia("CD"));
+  EXPECT_EQ(900,   avalia("CM"));
+  EXPECT_EQ(-1,   avalia("DM"));
 }
 // <TechnicalDetails>
 //
