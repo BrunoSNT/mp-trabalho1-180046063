@@ -150,6 +150,19 @@ TEST(TestaROMANO, Erros) {
   EXPECT_EQ(-1,   avalia("IC"));
   EXPECT_EQ(-1,   avalia("ID"));
   EXPECT_EQ(-1,   avalia("IM"));
+  EXPECT_EQ(-1,   avalia("VX"));
+  EXPECT_EQ(-1,   avalia("VL"));
+  EXPECT_EQ(-1,   avalia("VC"));
+  EXPECT_EQ(-1,   avalia("VD"));
+  EXPECT_EQ(-1,   avalia("VM"));
+  EXPECT_EQ(40,   avalia("XL"));
+  EXPECT_EQ(40,   avalia("XL"));
+  EXPECT_EQ(90,   avalia("XC"));
+  EXPECT_EQ(-1,   avalia("XD"));
+  EXPECT_EQ(-1,   avalia("XM"));
+  EXPECT_EQ(-1,   avalia("LC"));
+  EXPECT_EQ(-1,   avalia("LD"));
+  EXPECT_EQ(-1,   avalia("LM"));
 }
 // <TechnicalDetails>
 //
