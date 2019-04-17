@@ -112,6 +112,17 @@ TEST(TestaROMANO, Dezenas) {
   EXPECT_EQ(90,  avalia("XC"));
 
 }
+
+TEST(TestaROMANO, Centenas) {
+  EXPECT_EQ(200,  avalia("CC"));
+  EXPECT_EQ(300,  avalia("CCC"));
+  EXPECT_EQ(400,  avalia("CD"));
+  EXPECT_EQ(600,  avalia("DC"));
+  EXPECT_EQ(700,  avalia("DCC"));
+  EXPECT_EQ(800,  avalia("DCCC"));
+  EXPECT_EQ(900,  avalia("CM"));
+
+}
 // <TechnicalDetails>
 //
 // EXPECT_EQ(expected, actual) is the same as
