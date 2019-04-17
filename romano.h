@@ -34,6 +34,4 @@
 int converte(const char* romano);
 int avalia(const char* romano);
 
-
-
 #endif  // ROMANO_H_

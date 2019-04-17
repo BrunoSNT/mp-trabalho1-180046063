@@ -132,8 +132,8 @@ TEST(TestaROMANO, NumerosAleatorios) {
   EXPECT_EQ(2013,  avalia("MMXIII"));
   EXPECT_EQ(1459,  avalia("MCDLIX"));
   EXPECT_EQ(1173,  avalia("MCLXXIII"));
-  EXPECT_EQ(736,   avalia("DCCXXXVI"));
   EXPECT_EQ(993,   avalia("CMXCIII"));
+  EXPECT_EQ(736,   avalia("DCCXXXVI"));
   EXPECT_EQ(346,   avalia("CCCXLVI"));
   EXPECT_EQ(121,   avalia("CXXI")); 
   EXPECT_EQ(69,    avalia("LXIX"));
