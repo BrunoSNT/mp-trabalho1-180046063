@@ -110,7 +110,6 @@ TEST(TestaROMANO, Dezenas) {
   EXPECT_EQ(70,  avalia("LXX"));
   EXPECT_EQ(80,  avalia("LXXX"));
   EXPECT_EQ(90,  avalia("XC"));
-
 }
 
 TEST(TestaROMANO, Centenas) {
@@ -121,7 +120,24 @@ TEST(TestaROMANO, Centenas) {
   EXPECT_EQ(700,  avalia("DCC"));
   EXPECT_EQ(800,  avalia("DCCC"));
   EXPECT_EQ(900,  avalia("CM"));
+}
+TEST(TestaROMANO, Milhares) {
+  EXPECT_EQ(2000,  avalia("MM"));
+  EXPECT_EQ(3000,  avalia("MMM"));
+}
 
+TEST(TestaROMANO, NumerosAleatorios) {
+  EXPECT_EQ(2852,  avalia("MMDCCCLII"));
+  EXPECT_EQ(2457,  avalia("MMCDLVII"));
+  EXPECT_EQ(2013,  avalia("MMXIII"));
+  EXPECT_EQ(1459,  avalia("MCDLIX"));
+  EXPECT_EQ(1173,  avalia("MCLXXIII"));
+  EXPECT_EQ(736,   avalia("DCCXXXVI"));
+  EXPECT_EQ(993,   avalia("CMXCIII"));
+  EXPECT_EQ(346,   avalia("CCCXLVI"));
+  EXPECT_EQ(121,   avalia("CXXI")); 
+  EXPECT_EQ(69,    avalia("LXIX"));
+  EXPECT_EQ(34,    avalia("XXXIV")); 
 }
 // <TechnicalDetails>
 //
