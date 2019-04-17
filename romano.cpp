@@ -64,17 +64,21 @@ int converte(const char* romano) {
 }
 
 int avalia(const char* romano) {
-  int i = 0, atual = 0, anterior = 0;
+  int tamanho = 0, numero = 0, anterior = 0;
 
-  while (romano[i]) {
-    if (converte(&romano[i]) >= anterior)
-      atual = atual + converte(&romano[i]);
-    else
-      atual = atual - converte(&romano[i]);
-
-    anterior = converte(&romano[i]);
-    i++;
+  while (romano[tamanho]) {
+    tamanho++;
   }
-  return atual;
+  int posicao = tamanho-1;
+  while (romano[posicao]) {
+    if (converte(&romano[posicao]) >= anterior) {
+      numero = numero + converte(&romano[posicao]);
+    } else {
+      numero = numero - converte(&romano[posicao]);
+    }
+    anterior = converte(&romano[posicao]);
+    posicao--;
+  }
+  return numero;
 }
 

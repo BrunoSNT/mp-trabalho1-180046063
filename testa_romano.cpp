@@ -91,6 +91,16 @@ TEST(TestaROMANO, Avaliacao) {
   EXPECT_EQ(500,    avalia("D"));
   EXPECT_EQ(1000,   avalia("M"));
 }
+
+TEST(TestaROMANO, AvaliacaoMultipla) {
+  EXPECT_EQ(2,  avalia("II"));
+  EXPECT_EQ(3,  avalia("III"));
+  EXPECT_EQ(4,  avalia("IV"));
+  EXPECT_EQ(6,  avalia("VI"));
+  EXPECT_EQ(7,  avalia("VII"));
+  EXPECT_EQ(8,  avalia("VIII"));
+  EXPECT_EQ(9,  avalia("IX"));
+}
 // <TechnicalDetails>
 //
 // EXPECT_EQ(expected, actual) is the same as
