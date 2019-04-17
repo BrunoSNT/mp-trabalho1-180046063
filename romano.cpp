@@ -69,6 +69,9 @@ int avalia(const char* romano) {
   while (romano[tamanho]) {
     tamanho++;
   }
+  if (tamanho > 30) {
+    return -1;
+  }
   int posicao = tamanho-1;
   while (romano[posicao]) {
     if (converte(&romano[posicao]) >= anterior) {

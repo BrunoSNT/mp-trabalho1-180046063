@@ -135,9 +135,13 @@ TEST(TestaROMANO, NumerosAleatorios) {
   EXPECT_EQ(993,   avalia("CMXCIII"));
   EXPECT_EQ(736,   avalia("DCCXXXVI"));
   EXPECT_EQ(346,   avalia("CCCXLVI"));
-  EXPECT_EQ(121,   avalia("CXXI")); 
+  EXPECT_EQ(121,   avalia("CXXI"));
   EXPECT_EQ(69,    avalia("LXIX"));
-  EXPECT_EQ(34,    avalia("XXXIV")); 
+  EXPECT_EQ(34,    avalia("XXXIV"));
+}
+
+TEST(TestaROMANO, Erros) {
+  EXPECT_EQ(-1,  avalia("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"));
 }
 // <TechnicalDetails>
 //
