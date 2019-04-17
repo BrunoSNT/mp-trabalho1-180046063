@@ -1,4 +1,4 @@
 CC=g++
 
-romano: gtest_main.cpp romano.cpp testa_romano.cpp
-	$(CC) -std=c++11 -stdlib=libc++ gtest_main.cpp romano.cpp testa_romano.cpp -lgtest -lpthread -o romano 
+romano: romano.cpp testa_romano.cpp
+	$(CC) -std=c++11 -stdlib=libc++ romano.cpp testa_romano.cpp -o romano -lgtest -lpthread -I /usr/local/include

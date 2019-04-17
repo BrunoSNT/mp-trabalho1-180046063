@@ -31,5 +31,8 @@
 #ifndef ROMANO_H_
 #define ROMANO_H_
 
+int converte(const char* romano);
+
+
 
 #endif  // ROMANO_H_

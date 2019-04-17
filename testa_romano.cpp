@@ -41,8 +41,10 @@
 // Don't forget gtest.h, which declares the testing framework.
 
 #include <limits.h>
-#include "/romano.h"
-#include "/gtest/gtest.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include "romano.h"
+#include "gtest/gtest.h"
 namespace {
 }
 // Step 2. Use the TEST macro to define your tests.
@@ -70,7 +72,9 @@ namespace {
 // </TechnicalDetails>
 
   // test case.
-
+TEST(TestaROMANO, Units) {
+  EXPECT_EQ(1, converte("I"));}  // entrada string I,
+  // esperamos a saide de o int 1
   // <TechnicalDetails>
   //
   // EXPECT_EQ(expected, actual) is the same as
@@ -98,3 +102,8 @@ namespace {
 // Did you notice that we didn't register the tests?  The
 // RUN_ALL_TESTS() macro magically knows about all the tests we
 // defined.  Isn't this convenient?
+
+int main(int argc, char **argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
