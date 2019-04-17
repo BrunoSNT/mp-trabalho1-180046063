@@ -64,7 +64,7 @@ int converte(const char* romano) {
 }
 
 int avalia(const char* romano) {
-  int tamanho = 0, numero = 0, anterior = 0;
+  int tamanho = 0, numero = 0, anterior = 0, repeticoes = 0;
 
   while (romano[tamanho]) {
     tamanho++;
@@ -75,13 +75,23 @@ int avalia(const char* romano) {
   int posicao = tamanho-1;
   while (romano[posicao]) {
     if (converte(&romano[posicao]) >= anterior) {
+      if (converte(&romano[posicao]) == anterior) {
+        repeticoes++;
       numero = numero + converte(&romano[posicao]);
+      } else {
+        numero = numero + converte(&romano[posicao]);
+        repeticoes = 0;
+      }
     } else {
       numero = numero - converte(&romano[posicao]);
     }
     anterior = converte(&romano[posicao]);
     posicao--;
   }
-  return numero;
+  if (repeticoes > 3) {
+    return -1;
+  } else {
+    return numero;
+  }
 }
 
