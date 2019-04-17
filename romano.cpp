@@ -27,40 +27,58 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// A sample program demonstrating using Google C++ testing framework.
+/**
+	\mainpage
+	\author Bruno Sanguinetti 18/0046063
+	\date Realease: 18/04/2019
+*/
 
-#include "/romano.h"
+#include "./romano.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
 
-// Returns n! (the factorial of n).  For negative n, n! is defined to be 1.
-int Factorial(int n) {
-  int result = 1;
-  for (int i = 1; i <= n; i++) {
-    result *= i;
+int converte(const char* romano) {
+  if (romano[0] == 'I') {
+    return 1;
   }
-
-  return result;
+  if (romano[0] == 'V') {
+    return 5;
+  }
+  if (romano[0] == 'X') {
+    return 10;
+  }
+  if (romano[0] == 'L') {
+    return 50;
+  }
+  if (romano[0] == 'C') {
+    return 100;
+  }
+  if (romano[0] == 'D') {
+    return 500;
+  }
+  if (romano[0] == 'M') {
+    return 1000;
+  }
+  return 0;
 }
 
-// Returns true iff n is a prime number.
-bool IsPrime(int n) {
-  // Trivial case 1: small numbers
-  if (n <= 1) return false;
+int avalia(const char* romano) {
+  int tamanho = 0, numero = 0, anterior = 0;
 
-  // Trivial case 2: even numbers
-  if (n % 2 == 0) return n == 2;
-
-  // Now, we have that n is odd and n >= 3.
-
-  // Try to divide n by every odd number i, starting from 3
-  for (int i = 3; ; i += 2) {
-    // We only have to try i up to the square root of n
-    if (i > n/i) break;
-
-    // Now, we have i <= n/i < n.
-    // If n is divisible by i, n is not prime.
-    if (n % i == 0) return false;
+  while (romano[tamanho]) {
+    tamanho++;
   }
-
-  // n has no integer factor in the range (1, n), and thus is prime.
-  return true;
+  int posicao = tamanho-1;
+  while (romano[posicao]) {
+    if (converte(&romano[posicao]) >= anterior) {
+      numero = numero + converte(&romano[posicao]);
+    } else {
+      numero = numero - converte(&romano[posicao]);
+    }
+    anterior = converte(&romano[posicao]);
+    posicao--;
+  }
+  return numero;
 }
+

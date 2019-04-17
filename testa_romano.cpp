@@ -41,10 +41,12 @@
 // Don't forget gtest.h, which declares the testing framework.
 
 #include <limits.h>
-#include "/romano.h"
-#include "/gtest/gtest.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include "./romano.h"
+#include "gtest/gtest.h"
 namespace {
-
+}
 // Step 2. Use the TEST macro to define your tests.
 //
 // TEST has two parameters: the test case name and the test name.
@@ -69,74 +71,89 @@ namespace {
 //
 // </TechnicalDetails>
 
-
-// Tests Factorial().
-
-// Tests factorial of negative numbers.
-TEST(FactorialTest, Negative) {
-  // This test is named "Negative", and belongs to the "FactorialTest"
   // test case.
-  EXPECT_EQ(1, Factorial(-5));
-  EXPECT_EQ(1, Factorial(-1));
-  EXPECT_GT(Factorial(-10), 0);
-
-  // <TechnicalDetails>
-  //
-  // EXPECT_EQ(expected, actual) is the same as
-  //
-  //   EXPECT_TRUE((expected) == (actual))
-  //
-  // except that it will print both the expected value and the actual
-  // value when the assertion fails.  This is very helpful for
-  // debugging.  Therefore in this case EXPECT_EQ is preferred.
-  //
-  // On the other hand, EXPECT_TRUE accepts any Boolean expression,
-  // and is thus more general.
-  //
-  // </TechnicalDetails>
+TEST(TestaROMANO, Conversao) {
+  EXPECT_EQ(1,    converte("I"));   // entrada I, saida 1
+  EXPECT_EQ(5,    converte("V"));
+  EXPECT_EQ(10,   converte("X"));
+  EXPECT_EQ(50,   converte("L"));
+  EXPECT_EQ(100,  converte("C"));
+  EXPECT_EQ(500,  converte("D"));
+  EXPECT_EQ(1000, converte("M"));
 }
 
-// Tests factorial of 0.
-TEST(FactorialTest, Zero) {
-  EXPECT_EQ(1, Factorial(0));
+TEST(TestaROMANO, Avaliacao) {
+  EXPECT_EQ(1,      avalia("I"));
+  EXPECT_EQ(5,      avalia("V"));
+  EXPECT_EQ(10,     avalia("X"));
+  EXPECT_EQ(50,     avalia("L"));
+  EXPECT_EQ(100,    avalia("C"));
+  EXPECT_EQ(500,    avalia("D"));
+  EXPECT_EQ(1000,   avalia("M"));
 }
 
-// Tests factorial of positive numbers.
-TEST(FactorialTest, Positive) {
-  EXPECT_EQ(1, Factorial(1));
-  EXPECT_EQ(2, Factorial(2));
-  EXPECT_EQ(6, Factorial(3));
-  EXPECT_EQ(40320, Factorial(8));
+TEST(TestaROMANO, Unidades) {
+  EXPECT_EQ(2,  avalia("II"));
+  EXPECT_EQ(3,  avalia("III"));
+  EXPECT_EQ(4,  avalia("IV"));
+  EXPECT_EQ(6,  avalia("VI"));
+  EXPECT_EQ(7,  avalia("VII"));
+  EXPECT_EQ(8,  avalia("VIII"));
+  EXPECT_EQ(9,  avalia("IX"));
 }
 
-
-// Tests IsPrime()
-
-// Tests negative input.
-TEST(IsPrimeTest, Negative) {
-  // This test belongs to the IsPrimeTest test case.
-
-  EXPECT_FALSE(IsPrime(-1));
-  EXPECT_FALSE(IsPrime(-2));
-  EXPECT_FALSE(IsPrime(INT_MIN));
+TEST(TestaROMANO, Dezenas) {
+  EXPECT_EQ(20,  avalia("XX"));
+  EXPECT_EQ(30,  avalia("XXX"));
+  EXPECT_EQ(40,  avalia("XL"));
+  EXPECT_EQ(60,  avalia("LX"));
+  EXPECT_EQ(70,  avalia("LXX"));
+  EXPECT_EQ(80,  avalia("LXXX"));
+  EXPECT_EQ(90,  avalia("XC"));
 }
 
-// Tests some trivial cases.
-TEST(IsPrimeTest, Trivial) {
-  EXPECT_FALSE(IsPrime(0));
-  EXPECT_FALSE(IsPrime(1));
-  EXPECT_TRUE(IsPrime(2));
-  EXPECT_TRUE(IsPrime(3));
+TEST(TestaROMANO, Centenas) {
+  EXPECT_EQ(200,  avalia("CC"));
+  EXPECT_EQ(300,  avalia("CCC"));
+  EXPECT_EQ(400,  avalia("CD"));
+  EXPECT_EQ(600,  avalia("DC"));
+  EXPECT_EQ(700,  avalia("DCC"));
+  EXPECT_EQ(800,  avalia("DCCC"));
+  EXPECT_EQ(900,  avalia("CM"));
+}
+TEST(TestaROMANO, Milhares) {
+  EXPECT_EQ(2000,  avalia("MM"));
+  EXPECT_EQ(3000,  avalia("MMM"));
 }
 
-// Tests positive input.
-TEST(IsPrimeTest, Positive) {
-  EXPECT_FALSE(IsPrime(4));
-  EXPECT_TRUE(IsPrime(5));
-  EXPECT_FALSE(IsPrime(6));
-  EXPECT_TRUE(IsPrime(23));
+TEST(TestaROMANO, NumerosAleatorios) {
+  EXPECT_EQ(2852,  avalia("MMDCCCLII"));
+  EXPECT_EQ(2457,  avalia("MMCDLVII"));
+  EXPECT_EQ(2013,  avalia("MMXIII"));
+  EXPECT_EQ(1459,  avalia("MCDLIX"));
+  EXPECT_EQ(1173,  avalia("MCLXXIII"));
+  EXPECT_EQ(736,   avalia("DCCXXXVI"));
+  EXPECT_EQ(993,   avalia("CMXCIII"));
+  EXPECT_EQ(346,   avalia("CCCXLVI"));
+  EXPECT_EQ(121,   avalia("CXXI")); 
+  EXPECT_EQ(69,    avalia("LXIX"));
+  EXPECT_EQ(34,    avalia("XXXIV")); 
 }
-}  // namespace
+// <TechnicalDetails>
+//
+// EXPECT_EQ(expected, actual) is the same as
+//
+//   EXPECT_TRUE((expected) == (actual))
+//
+// except that it will print both the expected value and the actual
+// value when the assertion fails.  This is very helpful for
+// debugging.  Therefore in this case EXPECT_EQ is preferred.
+//
+// On the other hand, EXPECT_TRUE accepts any Boolean expression,
+// and is thus more general.
+//
+// </TechnicalDetails>
+// namespace
 
 // Step 3. Call RUN_ALL_TESTS() in main().
 //
@@ -149,3 +166,8 @@ TEST(IsPrimeTest, Positive) {
 // Did you notice that we didn't register the tests?  The
 // RUN_ALL_TESTS() macro magically knows about all the tests we
 // defined.  Isn't this convenient?
+
+int main(int argc, char **argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
