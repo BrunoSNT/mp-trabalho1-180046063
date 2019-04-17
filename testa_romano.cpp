@@ -92,7 +92,7 @@ TEST(TestaROMANO, Avaliacao) {
   EXPECT_EQ(1000,   avalia("M"));
 }
 
-TEST(TestaROMANO, AvaliacaoMultipla) {
+TEST(TestaROMANO, Unidades) {
   EXPECT_EQ(2,  avalia("II"));
   EXPECT_EQ(3,  avalia("III"));
   EXPECT_EQ(4,  avalia("IV"));
@@ -100,6 +100,17 @@ TEST(TestaROMANO, AvaliacaoMultipla) {
   EXPECT_EQ(7,  avalia("VII"));
   EXPECT_EQ(8,  avalia("VIII"));
   EXPECT_EQ(9,  avalia("IX"));
+}
+
+TEST(TestaROMANO, Dezenas) {
+  EXPECT_EQ(20,  avalia("XX"));
+  EXPECT_EQ(30,  avalia("XXX"));
+  EXPECT_EQ(40,  avalia("XL"));
+  EXPECT_EQ(60,  avalia("LX"));
+  EXPECT_EQ(70,  avalia("LXX"));
+  EXPECT_EQ(80,  avalia("LXXX"));
+  EXPECT_EQ(90,  avalia("XC"));
+
 }
 // <TechnicalDetails>
 //
