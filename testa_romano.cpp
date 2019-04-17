@@ -141,7 +141,15 @@ TEST(TestaROMANO, NumerosAleatorios) {
 }
 
 TEST(TestaROMANO, Erros) {
-  EXPECT_EQ(-1,  avalia("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"));
+  EXPECT_EQ(-1,   avalia("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"));
+  EXPECT_EQ(-1,   avalia("XXXX"));
+  EXPECT_EQ(-1,   avalia("LLLLLLLLLLL"));
+  EXPECT_EQ(-1,   avalia("XXXLLLXXX"));
+  EXPECT_EQ(383,  avalia("CCCLXXXIII"));
+  EXPECT_EQ(-1,   avalia("IL"));
+  EXPECT_EQ(-1,   avalia("IC"));
+  EXPECT_EQ(-1,   avalia("ID"));
+  EXPECT_EQ(-1,   avalia("IM"));
 }
 // <TechnicalDetails>
 //

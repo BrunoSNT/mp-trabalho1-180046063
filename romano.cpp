@@ -77,18 +77,22 @@ int avalia(const char* romano) {
     if (converte(&romano[posicao]) >= anterior) {
       if (converte(&romano[posicao]) == anterior) {
         repeticoes++;
-      numero = numero + converte(&romano[posicao]);
+        numero = numero + converte(&romano[posicao]);
       } else {
         numero = numero + converte(&romano[posicao]);
         repeticoes = 0;
       }
     } else {
-      numero = numero - converte(&romano[posicao]);
+        if (converte(&romano[posicao]) >= anterior/10 ){
+          numero = numero - converte(&romano[posicao]);
+        } else {
+          return  -1;
+        }
     }
     anterior = converte(&romano[posicao]);
     posicao--;
   }
-  if (repeticoes > 3) {
+  if (repeticoes >= 3) {
     return -1;
   } else {
     return numero;
