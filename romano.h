@@ -32,6 +32,7 @@
 #define ROMANO_H_
 
 int converte(const char* romano);
+int avalia(const char* romano);
 
 
 

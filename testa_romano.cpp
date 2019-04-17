@@ -72,17 +72,19 @@ namespace {
 // </TechnicalDetails>
 
   // test case.
-TEST(TestaROMANO, Units) {
-  EXPECT_EQ(1,    converte("I"));
+TEST(TestaROMANO, Conversao) {
+  EXPECT_EQ(1,    converte("I"));   // entrada I, saida 1
   EXPECT_EQ(5,    converte("V"));
   EXPECT_EQ(10,   converte("X"));
   EXPECT_EQ(50,   converte("L"));
   EXPECT_EQ(100,  converte("C"));
   EXPECT_EQ(500,  converte("D"));
   EXPECT_EQ(1000, converte("M"));
-}  // entrada string I,
-  // esperamos a saide de o int 1
-  // <TechnicalDetails>
+}
+
+TEST(TestaROMANO, Avaliacao) {
+  EXPECT_EQ(1,    avalia("I"));
+}   // <TechnicalDetails>
   //
   // EXPECT_EQ(expected, actual) is the same as
   //

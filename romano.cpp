@@ -27,7 +27,11 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// A sample program demonstrating using Google C++ testing framework.
+/**
+	\mainpage
+	\author Bruno Sanguinetti 18/0046063
+	\date Realease: 18/04/2019
+*/
 
 #include "./romano.h"
 #include <stdio.h>
@@ -57,5 +61,20 @@ int converte(const char* romano) {
     return 1000;
   }
   return 0;
+}
+
+int avalia(const char* romano) {
+  int i = 0, atual = 0, anterior = 0;
+
+  while (romano[i]) {
+    if (converte(&romano[i]) >= anterior)
+      atual = atual + converte(&romano[i]);
+    else
+      atual = atual - converte(&romano[i]);
+
+    anterior = converte(&romano[i]);
+    i++;
+  }
+  return atual;
 }
 
