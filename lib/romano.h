@@ -27,12 +27,11 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// A sample program demonstrating using Google C++ testing framework.
+// Programa de conversao de algorismos romanos para algorismos arabicos
+#ifndef LIB_ROMANO_H_
+#define LIB_ROMANO_H_
 
+int converte(const char* romano);
+int avalia(const char* romano);
 
-// Returns n! (the factorial of n).  For negative n, n! is defined to be 1.
-int Factorial(int n);
-
-// Returns true iff n is a prime number.
-bool IsPrime(int n);
-
+#endif  // LIB_ROMANO_H_
