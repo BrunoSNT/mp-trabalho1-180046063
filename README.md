@@ -32,7 +32,7 @@ Tenha certeza que o gtest está incluido.
 ### Compilando e Executando
 
 
-Entre no diretorio ```/romano``` em que esta o arquivo ```Makefile``` e ```README``` e execute o seguinte comando:
+Entre no diretorio ```../romano``` e execute o seguinte comando para compilar e executar:
 ```
 ~dir/romano user$ make run
 ```
