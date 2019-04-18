@@ -16,7 +16,7 @@
 
 Essas instruções farão com que você tenha uma cópia deste projeto em sua máquina local para fins de desenvolvimento e teste.
 
-### Prerrequisitos
+### Pré-requisitos
 
 Para roda esse software você precisa ter instalado em sua maquina o googletest, uma biblioteca de testes unitários para a linguagem de programação C ++.
 
@@ -50,15 +50,15 @@ Os testes foram realizados em etapas previamente determidadas:
 
 * teste de conversao de caractere - funcao converte()
 * teste de conversao de strings - funcao avalia()
-* teste de unidade na conversao romano-arabico
-* teste de dezena na conversao romano-arabico
-* teste de centena na conversao romano-arabico
-* teste de milhar na conversao romano-arabico
-* teste de conversao geral romano-arabico
-* teste de tratamento de erros na conversao romano-arabico
+* teste de unidade na avaliaçao/conversao romano-arabico
+* teste de dezena na avaliaçao/conversao romano-arabico
+* teste de centena na avaliaçao/conversao romano-arabico
+* teste de milhar na avaliaçao/conversao romano-arabico
+* teste de avaliaçao/conversao geral romano-arabico
+* teste de tratamento de erros na avaliaçao-conversao romano-arabico
 
 Todos os testes foram feitos com comparação binaria, não fatal (não interrompe o teste apos  detecção do erro), fornecida pelo googletest
-como pode ser observado no arquivo de testes [testa_romano.cpp](https://github.com/BrunoSNT/mp-trabalho1-180046063/blob/master/testa_romano.cc)
+como pode ser observado no arquivo de testes [testa_romano.cpp](https://github.com/BrunoSNT/mp-trabalho1-180046063/blob/master/testa_romano.cpp)
 
 Fatal assertion          | Nonfatal assertion       | Verifies
 ------------------------ | ------------------------ | --------------
