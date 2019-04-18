@@ -18,7 +18,7 @@ Essas instruções farão com que você tenha uma cópia deste projeto em sua m�
 
 ### Pré-requisitos
 
-Para roda esse software você precisa ter instalado em sua maquina o googletest, uma biblioteca de testes unitários para a linguagem de programação C ++.
+Para roda esse software você precisa ter instalado em sua máquina o googletest, uma biblioteca de testes unitários para a linguagem de programação C ++.
 
 Por favor leia [TUTORIAL GTEST INSTALL](https://github.com/google/googletest/blob/master/googletest/README.md) para mais detalhes sobre como instalar o gtest
 
@@ -32,7 +32,7 @@ Tenha certeza que o gtest está incluido.
 ### Compilando e Executando
 
 
-Entre no diretorio ```../romano``` e execute o seguinte comando para compilar e executar:
+Entre no diretório ```../romano``` e execute o seguinte comando para compilar e executar:
 ```
 ~dir/romano user$ make run
 ```
@@ -45,8 +45,7 @@ Para apenas compilar
 
 ## Testes
 
-Todos os testes foram feitos com comparação binaria, não fatal (não interrompe o teste apos  detecção do erro), fornecida pelo googletest
-como pode ser observado no arquivo de testes [testa_romano.cpp](https://github.com/BrunoSNT/mp-trabalho1-180046063/blob/master/testa_romano.cpp)
+Todos os testes foram feitos com comparação binaria, não fatal (não interrompe o teste após detecção do erro), fornecida pelo googletest como pode ser observado no arquivo de testes [testa_romano.cpp](https://github.com/BrunoSNT/mp-trabalho1-180046063/blob/master/testa_romano.cpp)
 
 Fatal assertion          | Nonfatal assertion       | Verifies
 ------------------------ | ------------------------ | --------------
@@ -54,16 +53,16 @@ Fatal assertion          | Nonfatal assertion       | Verifies
 
 Os testes foram realizados em etapas previamente determidadas:
 
-* teste de conversao de caractere - funcao converte()
-* teste de conversao de strings - funcao avalia()
-* teste de unidade na avaliaçao/conversao romano-arabico
-* teste de dezena na avaliaçao/conversao romano-arabico
-* teste de centena na avaliaçao/conversao romano-arabico
-* teste de milhar na avaliaçao/conversao romano-arabico
-* teste de avaliaçao/conversao geral romano-arabico
-* teste de tratamento de erros na avaliaçao-conversao romano-arabico
+* teste de conversão de caractere - função converte()
+* teste de conversão de strings - função avalia()
+* teste de unidade na avaliação/conversao romano-arabico
+* teste de dezena na avaliação/conversao romano-arabico
+* teste de centena na avaliação/conversao romano-arabico
+* teste de milhar na avaliação/conversao romano-arabico
+* teste de avaliação/conversao geral romano-arabico
+* teste de tratamento de erros na avaliação-conversao romano-arabico
 
-O que se esperava do teste em todas as estapas era uma saida de valor correto em algorismos arabicos dada determinada entrada em algorismo romanos. Em caso de entradas inválidas a função deveria retornar -1.
+O que se esperava do teste em todas as estapas era uma saída de valor correto em algarismos arabicos dada determinada entrada em algarismo romanos. Em caso de entradas inválidas a função deveria retornar -1.
 
 ## Testes de Coding Style
 
@@ -77,9 +76,9 @@ E em seguida feitas as devidas alterações para enquadrar o código nos padrõe
 ## Built With
 
 * [Google Test](https://github.com/google/googletest) - Test framework
-* [CPPLint]() - Coding Style Guide
-* [CPPCheck]() - Static Code Analysis Tool
-* [VSCode]() - Code Editor
+* [CPPLint](https://github.com/cpplint/cpplint) - Coding Style Guide
+* [CPPCheck](cppcheck.sourceforge.net) - Static Code Analysis Tool
+* [VSCode](https://code.visualstudio.com) - Code Editor
 
 ## License
 
