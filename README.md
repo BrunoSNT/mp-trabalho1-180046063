@@ -32,8 +32,7 @@ Tenha certeza que o gtest está incluido.
 ### Compilando e Executando
 
 
-Para compilar e executar o programa automaticamente, entre no diretorio /romano 
-em que esta o arquivo Makefile e README e execute o seguinte comando:
+Entre no diretorio ```/romano``` em que esta o arquivo ```Makefile``` e ```README``` e execute o seguinte comando:
 ```
 ~dir/romano user$ make run
 ```
