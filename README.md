@@ -5,7 +5,7 @@
 * 18/04/2019
 * Brasília, DF, Brasil
 * Métodos de Programação
-* TURMA A
+* Turma: A - 01/2019
 * Professor: Jan Correa
 
 ## Autor
