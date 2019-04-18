@@ -43,8 +43,8 @@
 #include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "./romano.h"
 #include "gtest/gtest.h"
+#include "lib/romano.h"
 namespace {
 }
 // Step 2. Use the TEST macro to define your tests.
@@ -72,17 +72,22 @@ namespace {
 // </TechnicalDetails>
 
   // test case.
-TEST(TestaROMANO, Conversao) {
+  // Para todos os testes, dada uma entrada,
+  // esperamos uma saida, no modelo abaixo
+  // funcao_teste(<valor esperado da saida>, funcao_sendo_testada(minha entrada)
+
+TEST(TestaROMANO, Conversao) {      // Testes da funcao de conversao
   EXPECT_EQ(1,    converte("I"));   // entrada I, saida 1
-  EXPECT_EQ(5,    converte("V"));
-  EXPECT_EQ(10,   converte("X"));
+  EXPECT_EQ(5,    converte("V"));   // entrada V, saida 5
+  EXPECT_EQ(10,   converte("X"));   //...
   EXPECT_EQ(50,   converte("L"));
   EXPECT_EQ(100,  converte("C"));
   EXPECT_EQ(500,  converte("D"));
   EXPECT_EQ(1000, converte("M"));
+  EXPECT_EQ(-1,   converte("A"));
 }
 
-TEST(TestaROMANO, Avaliacao) {
+TEST(TestaROMANO, Avaliacao) {    // Testes da funcao de avaliacao
   EXPECT_EQ(1,      avalia("I"));
   EXPECT_EQ(5,      avalia("V"));
   EXPECT_EQ(10,     avalia("X"));
@@ -90,9 +95,10 @@ TEST(TestaROMANO, Avaliacao) {
   EXPECT_EQ(100,    avalia("C"));
   EXPECT_EQ(500,    avalia("D"));
   EXPECT_EQ(1000,   avalia("M"));
+  EXPECT_EQ(-1,     avalia("A"));
 }
 
-TEST(TestaROMANO, Unidades) {
+TEST(TestaROMANO, Unidades) {   // Testes da funcao de avaliacao com unidades
   EXPECT_EQ(2,  avalia("II"));
   EXPECT_EQ(3,  avalia("III"));
   EXPECT_EQ(4,  avalia("IV"));
@@ -100,9 +106,10 @@ TEST(TestaROMANO, Unidades) {
   EXPECT_EQ(7,  avalia("VII"));
   EXPECT_EQ(8,  avalia("VIII"));
   EXPECT_EQ(9,  avalia("IX"));
+  EXPECT_EQ(-1, avalia("AB"));
 }
 
-TEST(TestaROMANO, Dezenas) {
+TEST(TestaROMANO, Dezenas) {  // Testes da funcao de avaliacao com dezenas
   EXPECT_EQ(20,  avalia("XX"));
   EXPECT_EQ(30,  avalia("XXX"));
   EXPECT_EQ(40,  avalia("XL"));
@@ -110,9 +117,10 @@ TEST(TestaROMANO, Dezenas) {
   EXPECT_EQ(70,  avalia("LXX"));
   EXPECT_EQ(80,  avalia("LXXX"));
   EXPECT_EQ(90,  avalia("XC"));
+  EXPECT_EQ(-1,  avalia("ABE"));
 }
 
-TEST(TestaROMANO, Centenas) {
+TEST(TestaROMANO, Centenas) {      // Testes da funcao de avaliacao com centenas
   EXPECT_EQ(200,  avalia("CC"));
   EXPECT_EQ(300,  avalia("CCC"));
   EXPECT_EQ(400,  avalia("CD"));
@@ -121,23 +129,52 @@ TEST(TestaROMANO, Centenas) {
   EXPECT_EQ(800,  avalia("DCCC"));
   EXPECT_EQ(900,  avalia("CM"));
 }
-TEST(TestaROMANO, Milhares) {
+TEST(TestaROMANO, Milhares) {   // Testes da funcao de avaliacao com milhares
   EXPECT_EQ(2000,  avalia("MM"));
   EXPECT_EQ(3000,  avalia("MMM"));
 }
 
-TEST(TestaROMANO, NumerosAleatorios) {
-  EXPECT_EQ(2852,  avalia("MMDCCCLII"));
+TEST(TestaROMANO, NumerosAleatorios) {  // Testes da funcao de avaliacao com
+  EXPECT_EQ(2852,  avalia("MMDCCCLII"));  // numero aleatorios
   EXPECT_EQ(2457,  avalia("MMCDLVII"));
   EXPECT_EQ(2013,  avalia("MMXIII"));
   EXPECT_EQ(1459,  avalia("MCDLIX"));
   EXPECT_EQ(1173,  avalia("MCLXXIII"));
-  EXPECT_EQ(736,   avalia("DCCXXXVI"));
   EXPECT_EQ(993,   avalia("CMXCIII"));
+  EXPECT_EQ(736,   avalia("DCCXXXVI"));
   EXPECT_EQ(346,   avalia("CCCXLVI"));
-  EXPECT_EQ(121,   avalia("CXXI")); 
+  EXPECT_EQ(121,   avalia("CXXI"));
   EXPECT_EQ(69,    avalia("LXIX"));
-  EXPECT_EQ(34,    avalia("XXXIV")); 
+  EXPECT_EQ(34,    avalia("XXXIV"));
+}
+
+TEST(TestaROMANO, Erros) {   // Testes da funcao em que esperamos -1
+  EXPECT_EQ(-1,   avalia("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"));  // +30 chars
+  EXPECT_EQ(-1,   avalia("XXXX"));        // Inicio de numeros invalidos
+  EXPECT_EQ(-1,   avalia("LLLLLLLLLLL"));
+  EXPECT_EQ(-1,   avalia("XXXLLLXXX"));
+  EXPECT_EQ(383,  avalia("CCCLXXXIII"));
+  EXPECT_EQ(-1,   avalia("IL"));
+  EXPECT_EQ(-1,   avalia("IC"));
+  EXPECT_EQ(-1,   avalia("ID"));
+  EXPECT_EQ(-1,   avalia("IM"));
+  EXPECT_EQ(-1,   avalia("VX"));
+  EXPECT_EQ(-1,   avalia("VL"));
+  EXPECT_EQ(-1,   avalia("VC"));
+  EXPECT_EQ(-1,   avalia("VD"));
+  EXPECT_EQ(-1,   avalia("VM"));
+  EXPECT_EQ(40,   avalia("XL"));    // ...
+  EXPECT_EQ(40,   avalia("XL"));
+  EXPECT_EQ(90,   avalia("XC"));
+  EXPECT_EQ(-1,   avalia("XD"));
+  EXPECT_EQ(-1,   avalia("XM"));
+  EXPECT_EQ(-1,   avalia("LC"));
+  EXPECT_EQ(-1,   avalia("LD"));
+  EXPECT_EQ(-1,   avalia("LM"));
+  EXPECT_EQ(150,   avalia("CL"));
+  EXPECT_EQ(400,   avalia("CD"));
+  EXPECT_EQ(900,   avalia("CM"));
+  EXPECT_EQ(-1,   avalia("DM"));    // Fim dos numeros invalidos
 }
 // <TechnicalDetails>
 //

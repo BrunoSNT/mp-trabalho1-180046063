@@ -33,13 +33,13 @@
 	\date Realease: 18/04/2019
 */
 
-#include "./romano.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
+#include "lib/romano.h"
 
-int converte(const char* romano) {
-  if (romano[0] == 'I') {
+int converte(const char* romano) {  // Funcao converte char de uma string
+  if (romano[0] == 'I') {       // em seus respectivos valores decimais arabicos
     return 1;
   }
   if (romano[0] == 'V') {
@@ -60,25 +60,45 @@ int converte(const char* romano) {
   if (romano[0] == 'M') {
     return 1000;
   }
-  return 0;
+  return -1;
 }
 
 int avalia(const char* romano) {
-  int tamanho = 0, numero = 0, anterior = 0;
+  int tamanho = 0, numero = 0, anterior = 0, repeticoes = 0;
 
-  while (romano[tamanho]) {
+  while (romano[tamanho]) {   // Contamos o tamanho do vetor
     tamanho++;
   }
-  int posicao = tamanho-1;
-  while (romano[posicao]) {
-    if (converte(&romano[posicao]) >= anterior) {
-      numero = numero + converte(&romano[posicao]);
-    } else {
-      numero = numero - converte(&romano[posicao]);
+  if (tamanho > 30) {        // Tratamento de erro, string +30 chars
+    return -1;
+  }
+  int posicao = tamanho-1;    // Comecamos a percores da ultima posicao -1
+  while (romano[posicao]) {   // para nao lermos o \0
+    if (converte(&romano[posicao]) >= anterior) {    // avalia se iremos somar
+      if (converte(&romano[posicao]) == anterior) {
+        repeticoes++;   // contador para tratar repeticoes invalidas
+        numero = numero + converte(&romano[posicao]);
+      } else {
+        numero = numero + converte(&romano[posicao]);
+        repeticoes = 0;
+      }
+    } else {                                        // avalia se iremos subtrair
+        if (converte(&romano[posicao]) >= anterior/10
+          && converte(&romano[posicao]) != 5
+          && converte(&romano[posicao]) != 50      // trata chars invalidos
+          && converte(&romano[posicao]) != 500) {
+          numero = numero - converte(&romano[posicao]);
+        } else {
+          return  -1;
+        }
     }
     anterior = converte(&romano[posicao]);
     posicao--;
   }
-  return numero;
+  if (repeticoes >= 3 && numero != 0) {  // retorna -1 se numero
+    return -1;                         // repeticoes for invalida
+  } else {
+    return numero;
+  }
 }
 
