@@ -8,24 +8,25 @@
 * TURMA A
 * Professor: Jan Correa
 
-## Authors
+## Autor
 
-* **Bruno Sanguinetti R. Barros** - *Developer* - [BrunoSNT](https://github.com/BrunoSNT)
+* **Bruno Sanguinetti R. Barros** - *180046063* - [BrunoSNT](https://github.com/BrunoSNT)
 
 ## Getting Started
 
-Essas instruções farão com que você tenha uma cópia deste projeto em sua máquina local para fins de desenvolvimento e teste. Veja a implantação de notas sobre como implantar o projeto em um sistema ativo.
+Essas instruções farão com que você tenha uma cópia deste projeto em sua máquina local para fins de desenvolvimento e teste.
 
 ### Prerrequisitos
 
 Para roda esse software você precisa ter instalado em sua maquina o googletest, uma biblioteca de testes unitários para a linguagem de programação C ++.
 
-Por favor leia [READ.md](https://github.com/google/googletest/blob/master/googletest/README.md) para mais detalhes sobre como instalar o gtest
+Por favor leia [TUTORIAL GTEST INSTALL](https://github.com/google/googletest/blob/master/googletest/README.md) para mais detalhes sobre como instalar o gtest
 
-Por favor leia [primer.md](https://github.com/google/googletest/blob/master/googletest/docs/primer.md) para mais detalhes sobre o gtest
+Por favor leia [GTEST INFO](https://github.com/google/googletest/blob/master/googletest/docs/primer.md) para mais detalhes sobre o gtest
 
+Tenha certeza que o gtest está incluido.
 ```
-@include "gtest/gteste"
+@include "gtest/gtest"
 ```
 
 ### Compilando e Executando
@@ -45,17 +46,25 @@ Para apenas compilar
 
 ## Testes
 
+Os testes foram realizados em etapas previamente determidadas:
 
-```
-exemplo
-```
+* teste de conversao de caractere [funcao converte()]
+* teste de conversao de strings [funcao avalia()]
+* teste de unidade na conversao romano-arabico
+* teste de dezena na conversao romano-arabico
+* teste de centena na conversao romano-arabico
+* teste de milhar na conversao romano-arabico
+* teste de conversao geral romano-arabico
+* teste de tratamento de erros na conversao romano-arabico
 
-### Testes de Coding Style
+## Testes de Coding Style
 
-
+Durante todo o projeto, após cada aprovaçao nos teste, foram executados os comandos
 ```
-exemplo
+cppcheck --enable=warning <file>
+cpplint <file>
 ```
+E em seguida feitas as devidas alterações para enquadrar o código nos padrões delimitados se nescessário
 ## Built With
 
 * [Google Test](https://github.com/google/googletest) - Test framework
