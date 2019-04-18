@@ -48,8 +48,8 @@ Para apenas compilar
 
 Os testes foram realizados em etapas previamente determidadas:
 
-* teste de conversao de caractere [funcao converte()]
-* teste de conversao de strings [funcao avalia()]
+* teste de conversao de caractere - funcao converte()
+* teste de conversao de strings - funcao avalia()
 * teste de unidade na conversao romano-arabico
 * teste de dezena na conversao romano-arabico
 * teste de centena na conversao romano-arabico
