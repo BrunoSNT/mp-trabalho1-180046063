@@ -27,11 +27,11 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// Programa de conversao de algorismos romanos para decimais indo-arabicos
-#ifndef ROMANO_H_
-#define ROMANO_H_
+// Programa de conversao de algorismos romanos para algorismos arabicos
+#ifndef LIB_ROMANO_H_
+#define LIB_ROMANO_H_
 
 int converte(const char* romano);
 int avalia(const char* romano);
 
-#endif  // ROMANO_H_
+#endif  // LIB_ROMANO_H_
