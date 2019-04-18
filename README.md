@@ -57,7 +57,7 @@ Os testes foram realizados em etapas previamente determidadas:
 * teste de conversao geral romano-arabico
 * teste de tratamento de erros na conversao romano-arabico
 
-Todos os testes foram feitos com comparação binaria fornecida pelo googletest
+Todos os testes foram feitos com comparação binaria, não fatal (não interrompe o teste apos  detecção do erro), fornecida pelo googletest
 como pode ser observado no arquivo de testes [testa_romano.cpp](https://github.com/BrunoSNT/mp-trabalho1-180046063/blob/master/testa_romano.cc)
 
 Fatal assertion          | Nonfatal assertion       | Verifies
