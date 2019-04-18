@@ -57,6 +57,13 @@ Os testes foram realizados em etapas previamente determidadas:
 * teste de conversao geral romano-arabico
 * teste de tratamento de erros na conversao romano-arabico
 
+Todos os testes foram feitos com comparação binaria fornecida pelo googletest
+como pode ser observado no arquivo de testes [testa_romano.cpp](https://github.com/BrunoSNT/mp-trabalho1-180046063/blob/master/testa_romano.cc)
+
+Fatal assertion          | Nonfatal assertion       | Verifies
+------------------------ | ------------------------ | --------------
+`ASSERT_EQ(val1, val2);` | `EXPECT_EQ(val1, val2);` | `val1 == val2`
+
 ## Testes de Coding Style
 
 Durante todo o projeto, após cada aprovaçao nos teste, foram executados os comandos
@@ -65,6 +72,7 @@ cppcheck --enable=warning <file>
 cpplint <file>
 ```
 E em seguida feitas as devidas alterações para enquadrar o código nos padrões delimitados se nescessário
+
 ## Built With
 
 * [Google Test](https://github.com/google/googletest) - Test framework
